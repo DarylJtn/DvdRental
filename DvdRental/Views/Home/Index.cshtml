@@ -12,13 +12,8 @@
 <p>form</p>
 
   
-    
-    @Html.LabelFor(x => x.UserName)
-    @Html.TextBoxFor(x => x.UserName)
 
-    @Html.LabelFor(x => x.Password)
-    @Html.TextBoxFor(x => x.Password)
-
+@Html.EditorForModel()
  <input type="submit" value="login"/>   
 }
 

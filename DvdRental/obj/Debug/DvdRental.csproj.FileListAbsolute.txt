@@ -26,3 +26,7 @@ c:\users\daryl\documents\visual studio 2013\Projects\DvdRental\DvdRental\bin\Sys
 c:\users\daryl\documents\visual studio 2013\Projects\DvdRental\DvdRental\obj\Debug\DvdRental.csprojResolveAssemblyReference.cache
 c:\users\daryl\documents\visual studio 2013\Projects\DvdRental\DvdRental\obj\Debug\DvdRental.dll
 c:\users\daryl\documents\visual studio 2013\Projects\DvdRental\DvdRental\obj\Debug\DvdRental.pdb
+C:\Users\Daryl\documents\visual studio 2013\Projects\DvdRental\DvdRental\bin\EntityFramework.dll
+C:\Users\Daryl\documents\visual studio 2013\Projects\DvdRental\DvdRental\bin\EntityFramework.SqlServer.dll
+C:\Users\Daryl\documents\visual studio 2013\Projects\DvdRental\DvdRental\bin\EntityFramework.xml
+C:\Users\Daryl\documents\visual studio 2013\Projects\DvdRental\DvdRental\bin\EntityFramework.SqlServer.xml

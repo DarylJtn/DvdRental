@@ -1,0 +1,40 @@
+﻿@model DvdRental.Models.UserModel
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm()) { 
+
+    @Html.ValidationSummary(true, "Login Failed");
+    
+    
+    <div>
+        <fieldset>
+            <legend>Login Form</legend>
+            <div>@Html.LabelFor(u=>u.UserName)</div>
+            <div>
+                @Html.TextBoxFor(u=>u.UserName)
+                @Html.ValidationMessageFor(u=>u.UserName)
+            </div>
+
+            <div>@Html.LabelFor(u => u.Password)</div>
+            <div>
+                @Html.TextBoxFor(u => u.Password)
+                @Html.ValidationMessageFor(u => u.Password)
+            </div>
+
+            <input type="submit" value="Login"/>
+
+        </fieldset>
+    </div>
+    
+    
+
+}
+
+
+<h2>LogIn</h2>
+
+
