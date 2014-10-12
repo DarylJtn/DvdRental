@@ -26,5 +26,7 @@ namespace DvdRental
         }
     
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<DvdCatalog> DvdCatalogs { get; set; }
+        public virtual DbSet<DvdViewStock> DvdViewStocks { get; set; }
     }
 }

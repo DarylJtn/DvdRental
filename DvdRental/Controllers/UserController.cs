@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Helpers;
+using System.Web.Security;
+using System.Net;
 namespace DvdRental.Controllers
 {
     public class UserController : Controller
@@ -31,6 +33,24 @@ namespace DvdRental.Controllers
         [HttpPost]
         public ActionResult LogIn(Models.UserModel user) {
 
+            //Check if the data meets the credentials as set
+            //from the methods in the UserModel.cs Class
+            if (ModelState.IsValid)
+            {
+                if (IsValid(user.UserName, user.Password)) { 
+
+                //create a session for authenticating the user
+                Session["UserID"] = user.UserName;
+                return RedirectToAction("Index","User");
+
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Login Data is incorrect.");
+
+                }
+
+            }
             return View();
         }
 
@@ -38,7 +58,9 @@ namespace DvdRental.Controllers
         //Method for logging the user out of the website
         public ActionResult LogOut() {
 
-            return View();
+            Session.Contents.RemoveAll();
+            return RedirectToAction("Index", "Home");
+          
         
         }
 
@@ -55,6 +77,26 @@ namespace DvdRental.Controllers
         [HttpPost]
         public ActionResult Registration(Models.UserModel user)
         {
+            
+            if (ModelState.IsValid) { 
+            
+                using(var db = new MainDBEntities()){
+                
+                    var sysUser = db.Users.Create();
+
+                    sysUser.UserName = user.UserName;
+                    sysUser.Password = Crypto.SHA256(user.Password);
+                    sysUser.StoreLoc = user.StoreLoc;
+
+                    db.Users.Add(sysUser);
+                    db.SaveChanges();
+
+                    return RedirectToAction("index", "Home");
+                }
+            
+            
+            }
+
 
             return View();
         }
@@ -74,7 +116,7 @@ namespace DvdRental.Controllers
                     
                     //Hash the users password and compare it to the password stored
                     //in the Database
-                    if (user.Password == Crypto.SHA256(password)) {
+                    if (user.Password == hash) {
                         return true;
                     }
                 
@@ -82,11 +124,37 @@ namespace DvdRental.Controllers
             }
             
             return false;
+        }
+            private MainDBEntities db = new MainDBEntities();
 
+        [HttpGet]
+        public ActionResult Catalog() {
+            //if the user is not logged in redirect user to login page
+            if (Session["UserId"] == null) {
 
+                return RedirectToAction("LogIn", "User");
+
+            }
+          //ViewData["dvds"]= db.DvdCatalogs.);
+
+           // return View();
+           return View(db.DvdViewStocks.ToList());
         }
 
-        
+        public ActionResult Details(int? id)
+        {  
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DvdCatalog movie = db.DvdCatalogs.Find(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
+
 
     }
 }

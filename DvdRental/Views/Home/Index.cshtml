@@ -1,20 +1,6 @@
-﻿@model DvdRental.Models.Home.IndexModel
-@{
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-<p>Login or register to use this site</p>
-
-@using (Html.BeginForm())
-
-{ 
-
-<p>form</p>
-
-  
-
-@Html.EditorForModel()
- <input type="submit" value="login"/>   
-}
-
-<p>@ViewBag.Result</p>
+<h2>Home Page</h2>

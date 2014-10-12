@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DvdRental.DvdViewStock>
+
+@{
+    ViewBag.Title = "Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Catalog</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreLoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumLeased)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StoreLoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumLeased)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

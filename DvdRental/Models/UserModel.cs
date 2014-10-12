@@ -23,6 +23,12 @@ namespace DvdRental.Models
         [StringLength(20,MinimumLength=6)]
         [Display(Name="Password: ")]
         public string Password { get; set; }
+        
+        
+        
+        [Display(Name="Store Location: ")]
+        public string StoreLoc { get; set; }
 
-    }
+       }
+        
 }

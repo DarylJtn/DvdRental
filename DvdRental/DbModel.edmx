@@ -4,7 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MainDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MainDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DvdCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserID" />
@@ -12,15 +20,39 @@
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="StoreLoc" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Privilage" Type="int" Nullable="false" />
+          <Property Name="StoreLoc" Type="varchar" MaxLength="50" />
+          <Property Name="Privilage" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\DARYL\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\DVDRENTAL\DVDRENTAL\APP_DATA\MAINDB.MDF.dbo.DvdViewStock' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DvdViewStock">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="StoreLoc" Type="varchar" MaxLength="50" />
+          <Property Name="TotalStock" Type="int" />
+          <Property Name="NumLeased" Type="int" />
         </EntityType>
         <EntityContainer Name="MainDBModelStoreContainer">
+          <EntitySet Name="DvdCatalog" EntityType="Self.DvdCatalog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DvdViewStock" EntityType="Self.DvdViewStock" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DvdViewStock].[Id] AS [Id], 
+    [DvdViewStock].[Title] AS [Title], 
+    [DvdViewStock].[Description] AS [Description], 
+    [DvdViewStock].[StoreLoc] AS [StoreLoc], 
+    [DvdViewStock].[TotalStock] AS [TotalStock], 
+    [DvdViewStock].[NumLeased] AS [NumLeased]
+    FROM [dbo].[DvdViewStock] AS [DvdViewStock]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MainDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -31,13 +63,35 @@
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="StoreLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Privilage" Type="Int32" Nullable="false" />
+          <Property Name="StoreLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Privilage" Type="Int32" />
         </EntityType>
         <EntityContainer Name="MainDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="DvdCatalogs" EntityType="MainDBModel.DvdCatalog" />
+          <EntitySet Name="DvdViewStocks" EntityType="MainDBModel.DvdViewStock" />
         </EntityContainer>
+        <EntityType Name="DvdCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DvdViewStock">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="Description" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StoreLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalStock" Type="Int32" />
+          <Property Name="NumLeased" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -50,9 +104,29 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="StoreLoc" ColumnName="StoreLoc" />
                 <ScalarProperty Name="Privilage" ColumnName="Privilage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DvdCatalogs">
+            <EntityTypeMapping TypeName="MainDBModel.DvdCatalog">
+              <MappingFragment StoreEntitySet="DvdCatalog">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DvdViewStocks">
+            <EntityTypeMapping TypeName="MainDBModel.DvdViewStock">
+              <MappingFragment StoreEntitySet="DvdViewStock">
+                <ScalarProperty Name="NumLeased" ColumnName="NumLeased" />
+                <ScalarProperty Name="TotalStock" ColumnName="TotalStock" />
+                <ScalarProperty Name="StoreLoc" ColumnName="StoreLoc" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

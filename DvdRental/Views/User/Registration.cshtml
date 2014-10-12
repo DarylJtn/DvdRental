@@ -1,6 +1,45 @@
-﻿@{
+﻿@model DvdRental.Models.UserModel
+@{
     ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Registration</h2>
+
+@using (Html.BeginForm()){ 
+
+    @Html.ValidationSummary(true,"Registration Failed. Please try again")
+    <div>
+        <fieldset>
+            <legend>Create a new user</legend>
+            <div class="editor-label">
+                @Html.LabelFor(u=>u.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.UserName)
+                @Html.ValidationMessageFor(u => u.UserName)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.Password)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Password)
+                @Html.ValidationMessageFor(u => u.Password)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.StoreLoc)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.StoreLoc)
+                @Html.ValidationMessageFor(u => u.StoreLoc)
+            </div>
+            <input type="submit" value="Register" />
+
+        </fieldset>
+    </div>
+
+
+
+
+
+}

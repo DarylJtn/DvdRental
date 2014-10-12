@@ -13,11 +13,18 @@
 
 <body>
     <div style="width:auto;background-color:#808080">
-    @if (Request.IsAuthenticated) {
-    <strong>@Html.Encode(User.Identity.Name)</strong>
+    @if (Session["UserID"] != null)
+    {
+    <strong>@Html.Encode(Session["UserID"])</strong>
+    <span> | </span>
+
     @Html.ActionLink("Sign Out","Logout","User")
+    <span> | </span>
+    @Html.ActionLink("Catalog", "Catalog", "User")
+
     }
-    else { 
+    else
+    {
     @Html.ActionLink("Register","Registration","User")
     <span> | </span>    
     @Html.ActionLink("Log In","Login","User")        

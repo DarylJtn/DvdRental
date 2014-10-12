@@ -7,9 +7,29 @@
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="StoreLoc" ColumnName="StoreLoc" />
           <ScalarProperty Name="Privilage" ColumnName="Privilage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DvdCatalogs">
+      <EntityTypeMapping TypeName="MainDBModel.DvdCatalog">
+        <MappingFragment StoreEntitySet="DvdCatalog">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DvdViewStocks">
+      <EntityTypeMapping TypeName="MainDBModel.DvdViewStock">
+        <MappingFragment StoreEntitySet="DvdViewStock">
+          <ScalarProperty Name="NumLeased" ColumnName="NumLeased" />
+          <ScalarProperty Name="TotalStock" ColumnName="TotalStock" />
+          <ScalarProperty Name="StoreLoc" ColumnName="StoreLoc" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
