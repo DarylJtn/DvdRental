@@ -142,7 +142,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DvdViewModel.cs" />
     <Compile Include="Models\DvdModel.cs" />
     <Compile Include="Models\Home\IndexModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -219,6 +218,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\User\Catalog.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\User\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

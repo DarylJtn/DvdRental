@@ -4,10 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="344d3a3aeb004a36970d039a91191577" Name="Diagram1">
+      <Diagram DiagramId="344d3a3aeb004a36970d039a91191577" Name="Diagram1" ZoomLevel="95">
         <EntityTypeShape EntityType="MainDBModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MainDBModel.DvdCatalog" Width="1.5" PointX="2.5" PointY="1.125" />
-        <EntityTypeShape EntityType="MainDBModel.DvdViewStock" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MainDBModel.DvdCatalog" Width="1.5" PointX="3.125" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

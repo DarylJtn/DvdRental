@@ -4,6 +4,171 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+
+
+    <style>
+
+
+        h1{
+       color:white;
+      font-family:Verdana;
+        border-radius: 0px 0px 60px 0px;
+        -moz-border-radius: 0px 0px 0px 0px;
+        -webkit-border-radius: 0px 0px 0px 0px;
+        border: 0px solid #000000;
+        padding:20px;
+        background: #1e5799; /* Old browsers */
+background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+margin-bottom:-10px;
+        }
+
+
+        h2 {
+        font-family:Verdana;
+        position: fixed;
+        top: 10px;
+        right: 30px;
+
+        
+        
+        }
+
+        fieldset {
+        border-radius: 40px 40px 40px 40px;
+        -moz-border-radius: 40px 40px 40px 40px;
+        -webkit-border-radius: 40px 40px 40px 40px;
+        border: 3px solid #3f3642;
+        background-color:#495880;
+        padding:20px;
+        width:200px;
+              font-family:Verdana;
+
+        }
+
+            legend {
+            position: relative;
+                 top: 20px;
+            left: 10px;
+}
+
+        .field-validation-error {
+        color:red;
+        
+        }
+
+
+        /*CSS for the table*/
+ .CSSTable {
+
+     font-family:Verdana;
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.CSSTable table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTable tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTable table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.CSSTable table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTable tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.CSSTable tr:hover td{
+	
+}
+.CSSTable tr:nth-child(odd){ background-color:#878791; }
+.CSSTable tr:nth-child(even)    { background-color:#ffffff; }.CSSTable td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:6px;
+	font-size:14px;
+	font-family:Verdana;
+	font-weight:normal;
+	color:#000000;
+}.CSSTable tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTable tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTable tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTable tr:first-child td{
+		background:-o-linear-gradient(bottom, #2a6daf 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #2a6daf), color-stop(1, #003f7f) );
+	background:-moz-linear-gradient( center top, #2a6daf 5%, #003f7f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#2a6daf", endColorstr="#003f7f");	background: -o-linear-gradient(top,#2a6daf,003f7f);
+
+	background-color:#2a6daf;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Verdana;
+	font-weight:bold;
+	color:#ffffff;
+}
+.CSSTable tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #2a6daf 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #2a6daf), color-stop(1, #003f7f) );
+	background:-moz-linear-gradient( center top, #2a6daf 5%, #003f7f 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#2a6daf", endColorstr="#003f7f");	background: -o-linear-gradient(top,#2a6daf,003f7f);
+
+	background-color:#2a6daf;
+}
+.CSSTable tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTable tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+} 
+    /* End of the CSS used in the table*/        
+
+
+
+
+    </style>
+
+
 </head>
 
 <header>
@@ -12,7 +177,7 @@
 </header>
 
 <body>
-    <div style="width:auto;background-color:#808080">
+    <div style="width:auto;background-color:#808080; padding:10px; font-family:Verdana;">
     @if (Session["UserID"] != null)
     {
     <strong>@Html.Encode(Session["UserID"])</strong>

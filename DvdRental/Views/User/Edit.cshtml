@@ -1,0 +1,61 @@
+﻿@model DvdRental.DvdCatalog
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DvdCatalog</legend>
+        @{string i = ViewBag.Id.ToString();
+          }
+        @Html.Hidden(i)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumLeased)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumLeased)
+            @Html.ValidationMessageFor(model => model.NumLeased)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalStock)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TotalStock)
+            @Html.ValidationMessageFor(model => model.TotalStock)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Catalog")
+</div>

@@ -6,7 +6,9 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="NumLeased" Type="int" Nullable="false" />
+    <Property Name="TotalStock" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -20,31 +22,8 @@
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'C:\USERS\DARYL\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\DVDRENTAL\DVDRENTAL\APP_DATA\MAINDB.MDF.dbo.DvdViewStock' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="DvdViewStock">
-    <Key>
-      <PropertyRef Name="Id" />
-      <PropertyRef Name="Title" />
-      <PropertyRef Name="Description" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="StoreLoc" Type="varchar" MaxLength="50" />
-    <Property Name="TotalStock" Type="int" />
-    <Property Name="NumLeased" Type="int" />
-  </EntityType>
   <EntityContainer Name="MainDBModelStoreContainer">
     <EntitySet Name="DvdCatalog" EntityType="Self.DvdCatalog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DvdViewStock" EntityType="Self.DvdViewStock" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [DvdViewStock].[Id] AS [Id], 
-    [DvdViewStock].[Title] AS [Title], 
-    [DvdViewStock].[Description] AS [Description], 
-    [DvdViewStock].[StoreLoc] AS [StoreLoc], 
-    [DvdViewStock].[TotalStock] AS [TotalStock], 
-    [DvdViewStock].[NumLeased] AS [NumLeased]
-    FROM [dbo].[DvdViewStock] AS [DvdViewStock]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>

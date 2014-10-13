@@ -13,7 +13,6 @@
   <EntityContainer Name="MainDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="DvdCatalogs" EntityType="MainDBModel.DvdCatalog" />
-    <EntitySet Name="DvdViewStocks" EntityType="MainDBModel.DvdViewStock" />
   </EntityContainer>
   <EntityType Name="DvdCatalog">
     <Key>
@@ -21,19 +20,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="DvdViewStock">
-    <Key>
-      <PropertyRef Name="Id" />
-      <PropertyRef Name="Title" />
-      <PropertyRef Name="Description" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="StoreLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TotalStock" Type="Int32" />
-    <Property Name="NumLeased" Type="Int32" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="NumLeased" Type="Int32" Nullable="false" />
+    <Property Name="TotalStock" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

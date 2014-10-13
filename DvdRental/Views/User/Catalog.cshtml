@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DvdRental.DvdViewStock>
+﻿@model IEnumerable<DvdRental.DvdCatalog>
 
 @{
     ViewBag.Title = "Catalog";
@@ -10,7 +10,16 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Title: @Html.TextBox("term") <br />
+        <input type="submit" value="Filter" />
+    </p>
+} 
+
+<table class="CSSTable">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -19,18 +28,26 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StoreLoc)
+            @Html.DisplayNameFor(model => model.NumLeased)
         </th>
+        <th>
+            Remaining Stock
+         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalStock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumLeased)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
+    
+
+        
+    int? i = item.TotalStock - item.NumLeased; 
+    
+    
+    
+    
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
@@ -39,18 +56,21 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.StoreLoc)
+            @Html.DisplayFor(modelItem => item.NumLeased)
+        </td>
+        <td>
+            @i
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TotalStock)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NumLeased)
-        </td>
-        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Lease", "Lease", new { id = item.Id}, new{onclick = "alert(\"Leased a DVD\");"}) |
+            @Html.ActionLink("Return", "Return", new { id=item.Id}, new{onclick = "alert(\"Returned a DVD\");"})|
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "confirm('Press a button!');" })
+
+
         </td>
     </tr>
 }
