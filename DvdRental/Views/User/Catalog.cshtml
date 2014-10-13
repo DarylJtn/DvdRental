@@ -66,7 +66,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Lease", "Lease", new { id = item.Id}, new{onclick = "alert(\"Leased a DVD\");"}) |
+            @Html.ActionLink("Rent", "Lease", new { id = item.Id}, new{onclick = "alert(\"Leased a DVD\");"}) |
             @Html.ActionLink("Return", "Return", new { id=item.Id}, new{onclick = "alert(\"Returned a DVD\");"})|
             @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "confirm('Press a button!');" })
 
