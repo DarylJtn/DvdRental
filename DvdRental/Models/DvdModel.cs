@@ -6,6 +6,7 @@ using System.Web;
 
 namespace DvdRental.Models
 {
+    //model for interfacing the DVD data
     public class DvdModel
     {
 

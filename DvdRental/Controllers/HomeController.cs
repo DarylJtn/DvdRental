@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace DvdRental.Controllers
 {
+    //controller for handling user interaction while logged out
     public class HomeController : Controller
     {
         //

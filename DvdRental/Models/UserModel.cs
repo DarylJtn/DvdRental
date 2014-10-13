@@ -6,10 +6,11 @@ using System.Web;
 
 namespace DvdRental.Models
 {
+
+    //model interfacing the user data
     public class UserModel
     {
        // [Required]       
-       // public string Email { get; set; }
         [Required] 
         [Display(Name="User Name: ")]      
         public string UserName { get; set; }

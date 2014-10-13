@@ -12,6 +12,8 @@ using System.Data.Common;
 using System.Data;
 namespace DvdRental.Controllers
 {
+
+    //controller for loggin user in and all user actions while user is logged in
     public class UserController : Controller
     {
         //
