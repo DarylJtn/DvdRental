@@ -218,7 +218,7 @@ namespace DvdRental.Controllers
             using (var context = new MainDBEntities())
             {
                 context.Database.ExecuteSqlCommand(
-                    "Update DvdCatalog set NumLeased = NumLeased + 1WHERE id =" + id + ";");
+                    "Update DvdCatalog set NumLeased = NumLeased + 1 WHERE id =" + id + ";");
             }
 
         return RedirectToAction("Catalog", "User");
