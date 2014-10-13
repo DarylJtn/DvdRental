@@ -66,9 +66,15 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Rent", "Lease", new { id = item.Id}, new{onclick = "alert(\"Leased a DVD\");"}) |
-            @Html.ActionLink("Return", "Return", new { id=item.Id}, new{onclick = "alert(\"Returned a DVD\");"})|
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "confirm('Press a button!');" })
+            @if (i > 0) {
+                @Html.ActionLink("Rent", "Lease", new { id = item.Id }, new { onclick = "alert(\"Rented a DVD\");" });
+            }
+            @if (i < item.TotalStock)
+            {
+                @Html.ActionLink("Return", "Return", new { id=item.Id}, new{onclick = "alert(\"Returned a DVD\");"});
+
+            }|
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
 
 
         </td>
