@@ -312,7 +312,7 @@ namespace DvdRental.Controllers
         }
 
 
-
+        //action result. Takes a string search term and gets valid DVD's from the db
       [HttpPost]
         public ActionResult Search(string term)
         {
@@ -330,6 +330,8 @@ namespace DvdRental.Controllers
             return View(dvds);
 
         }
+
+        //Action result for deleting a DVD record based on the id passed in
       public ActionResult Delete(int? id) {
 
           using (var context = new MainDBEntities())
@@ -337,8 +339,6 @@ namespace DvdRental.Controllers
               context.Database.ExecuteSqlCommand(
                   "DELETE DvdCatalog WHERE id =" + id + ";");
           }
-
-
    return RedirectToAction("Catalog", "User");
 
 
